@@ -45,11 +45,19 @@ nav ul li a {
     text-decoration: none;
     color: black;
     font-weight: 700;
-
 }
 
-nav ul li a:hover {
-    color: #007BFF;
+nav ul li:first-child {
+    text-decoration: underline;
+    text-decoration-thickness: 1.5px; /* Grosor de la línea subrayada */
+    text-underline-offset: 10px; /* Desplazamiento de la línea más abajo del texto */
+}
+
+nav ul li:hover {
+    /* color: #007BFF; */
+    text-decoration: underline;
+    text-decoration-thickness: 1.5px; /* Grosor de la línea subrayada */
+    text-underline-offset: 10px; /* Desplazamiento de la línea más abajo del texto */
 }
 
 .main-content {

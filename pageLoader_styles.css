@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Loader específico, aislado del resto de la página */
+.loader-area {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 10; /* Asegura que esté por encima de otros elementos */
+    background-color: white; /* Para asegurarse de que el loader cubra todo */
+}
+
+.loader-logo-container {
+    position: absolute;   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 180px;
+    height: 180px;
+    z-index: 20;
+    opacity: 1;
+    transition: opacity 1s ease;
+}
+
+.loader-logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+}
+
+.loader-logo-grey {
+    fill: rgba(128, 128, 128, 0.8) !important;
+    opacity: 50%;
+}
+
+.loader-logo-black {
+    fill: white !important;
+    clip-path: inset(0 100% 0 0); /* Ocultado inicialmente */
+    animation: loader-revealLogo 3s ease forwards;
+}
+
+@keyframes loader-revealLogo {
+    from {
+        clip-path: inset(0 100% 0 0);
+    }
+    to {
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+/* Estilos para los divs negros que se separan */
+.loader-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    z-index: 10;
+}
+
+.loader-left, .loader-right {
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    background-color: black;
+    transition: transform .8s ease-in-out;
+}
+
+.loader-left {
+    left: 0;
+}
+
+.loader-right {
+    right: 0;
+}
+
+.loader-container.open .loader-left {
+    transform: translateX(-100%);
+}
+
+.loader-container.open .loader-right {
+    transform: translateX(100%);
+}
+
+/* Ocultar el loader después de la animación */
+.loader-area.hidden {
+    display: none;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
